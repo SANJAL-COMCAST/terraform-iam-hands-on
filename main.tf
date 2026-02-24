@@ -54,3 +54,14 @@ resource "aws_iam_role_policy_attachment" "attach_policy" {
   role       = aws_iam_role.demo_role.name
   policy_arn = aws_iam_policy.managed_policy.arn
 }
+
+terraform {
+ backend "s3" {
+   bucket         = "sl-terraform-remote-state-unique123"
+   key            = "iam-demo/terraform.tfstate"
+   region         = "eu-north-1"
+   dynamodb_table = "terraform-lock-table"
+   encrypt        = true
+ }
+}
+
