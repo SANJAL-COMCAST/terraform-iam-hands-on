@@ -1,7 +1,7 @@
 output "role_name" {
-  value = aws_iam_role.demo_role.name
+  value = module.iam_role.role_name
 }
 
-output "managed_policy_arn" {
-  value = aws_iam_policy.managed_policy.arn
+output "role_arn" {
+  value = module.iam_role.role_arn
 }
